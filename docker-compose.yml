@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  kotlin-product-manager-db:
+    image: postgres:15
+    container_name: kotlin-product-manager-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: product-manager-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
