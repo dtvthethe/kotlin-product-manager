@@ -6,11 +6,11 @@ import jakarta.persistence.*
 @Table(name = "category")
 data class Category(
     @Id() @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    var id: Long? = null,
 
     @Column(name = "name", nullable = false)
-    val name: String,
+    var name: String? = null,
 
     @OneToMany(mappedBy = "category", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
-    val products: MutableSet<Product>
+    var products: MutableSet<Product> = mutableSetOf(),
 )
